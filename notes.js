@@ -1,10 +1,10 @@
-console.log('Starting notes.js!');
-
 const fs = require('fs');
 
+
 let noteInfo = (note) => {
-    console.log(`\n--\nTitle: ${note.title}\nBody: ${note.body}\n`);
+    console.log(`----\nTitle: ${note.title}\nBody: ${note.body}\n`);
 }
+
 
 let fetchNotes = () => {
 
@@ -36,7 +36,7 @@ let addNote = (title,body) => {
 };
 
 let getAll = () => {
-    console.log('Listing all notes');
+    return fetchNotes();
 };
 let rem = (title) => {
     let notes = fetchNotes();
