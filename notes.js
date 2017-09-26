@@ -2,6 +2,10 @@ console.log('Starting notes.js!');
 
 const fs = require('fs');
 
+let noteInfo = (note) => {
+    console.log(`\n--\nTitle: ${note.title}\nBody: ${note.body}\n`);
+}
+
 let fetchNotes = () => {
 
     try {
@@ -41,11 +45,14 @@ let rem = (title) => {
     return notes.length !== filteredNotes.length;
 }
 let getNote = (title) => {
-    console.log('Reading', title);
+    let notes = fetchNotes();
+    let filteredNotes = notes.filter((note) => note.title === title);
+    return filteredNotes[0];
 }
 module.exports = {
     addNote, 
     getAll,
     rem,
-    getNote
+    getNote,
+    noteInfo
 };

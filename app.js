@@ -15,14 +15,20 @@ if(command === 'add') {
     let note = notes.addNote(argv.title, argv.body);
     if(note) {
         console.log('Note created!');
-        console.log(`\n--\nTitle: ${note.title}\nBody: ${note.body}\n`);
+        notes.noteInfo(note);
     } else {
         console.log('A note title already exists!');
     }
 } else if(command === 'rem') {
-    notes.rem(argv.title);
+    let note = notes.rem(argv.title);
+    if(note) {
+        console.log('Note removed!');
+    } else console.log('No note with that title!');
 } else if(command === 'list') {
     notes.getAll();
-} else if(command === 'getNote') {
-    notes.getNote(argv.title);
+} else if(command === 'read') {
+    let note = notes.getNote(argv.title);
+    if(note) {
+        notes.noteInfo(note);
+    } else console.log('Note not found!');
 } else console.log('Unrecognized command');
