@@ -35,7 +35,10 @@ let getAll = () => {
     console.log('Listing all notes');
 };
 let rem = (title) => {
-    console.log('Removing', title);
+    let notes = fetchNotes();
+    let filteredNotes = notes.filter((note) =>  note.title !== title);
+    saveNotes(filteredNotes);
+    return notes.length !== filteredNotes.length;
 }
 let getNote = (title) => {
     console.log('Reading', title);
